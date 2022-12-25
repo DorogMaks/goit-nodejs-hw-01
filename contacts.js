@@ -24,13 +24,17 @@ async function listContacts() {
 
 async function getContactById(contactId) {
   const contacts = await readContacts();
-  const result = await contacts.find((contact) => contact.id === contactId);
+  const result = await contacts.find(
+    (contact) => contact.id === contactId.toString()
+  );
   return result;
 }
 
 async function removeContact(contactId) {
   const contacts = await readContacts();
-  const updateContacts = contacts.filter((contact) => contact.id !== contactId);
+  const updateContacts = contacts.filter(
+    (contact) => contact.id !== contactId.toString()
+  );
   await writeContacts(updateContacts);
 }
 
