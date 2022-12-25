@@ -19,7 +19,7 @@ async function writeContacts(data) {
 }
 
 async function listContacts() {
-  await readContacts();
+  return await readContacts();
 }
 
 async function getContactById(contactId) {
